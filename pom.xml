@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>grisu-client-jython</artifactId>
+	<artifactId>grisu-jython</artifactId>
 	<groupId>grisu.frontend</groupId>
 	<name>Jython client package</name>
 	<version>0.3-beta5-SNAPSHOT</version>
@@ -74,6 +74,22 @@
 	</dependencies>
 
 
+	<description>The Grisu Jython wrapper is a Java package that contains both the Grisu client library and a version of the Jython interpreter. Basically, it allows you to access all the convenience (Java) methods and objects of the Grisu client library via Python syntax. 
+</description>
+	<url>https://github.com/grisu/grisu-jython</url>
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/grisu/grisu-jython/issues</url>
+	</issueManagement>
+	<scm>
+		<connection>scm:git:git://github.com/grisu/grisu-jython.git</connection>
+		<developerConnection>scm:git:git@github.com:grisu/grisu-jython.git</developerConnection>
+		<url>https://github.com/grisu/grisu-jython/tree/master</url>
+	</scm>
+	<organization>
+		<name>Grisu open source project</name>
+		<url>https://github.com/grisu</url>
+	</organization>
 	<build>
 		<resources>
 			<resource>
