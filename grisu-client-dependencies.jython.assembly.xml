@@ -68,6 +68,10 @@
 			<source>__init__.py</source>
 			<outputDirectory>/arcs</outputDirectory>
 		</file>
+		<file>
+			<source>__init__.py</source>
+			<outputDirectory>/gsindl</outputDirectory>
+		</file>
 	</files>
 
 </assembly>
