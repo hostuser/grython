@@ -1,5 +1,5 @@
-from org.vpac.grisu.frontend.control.login import LoginManager
-from org.vpac.grisu.frontend.model.job import BatchJobObject, JobObject
+from grisu.frontend.control.login import LoginManager
+from grisu.frontend.model.job import BatchJobObject, JobObject
 import sys
 
 batchJobName  =  sys.argv[1]

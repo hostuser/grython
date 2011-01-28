@@ -10,9 +10,9 @@ https://code.arcs.org.au/hudson/job/Grisu-SNAPSHOT/javadoc/org/vpac/grisu/fronte
 '''
 
 from au.org.arcs.jcommons.constants import Constants
-from org.vpac.grisu.control.exceptions import NoSuchJobException
-from org.vpac.grisu.frontend.control.login import LoginManager, LoginParams
-from org.vpac.grisu.frontend.model.job import JobObject, BatchJobObject, \
+from grisu.control.exceptions import NoSuchJobException
+from grisu.frontend.control.login import LoginManager, LoginParams
+from grisu.frontend.model.job import JobObject, BatchJobObject, \
     JobsException
 import sys
 import time

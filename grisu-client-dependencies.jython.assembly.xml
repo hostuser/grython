@@ -54,6 +54,7 @@
 					<exclude>**/gluev12r2-ext-class-map.properties</exclude>
 					<exclude>**/rebel.xml</exclude>
 					<exclude>arcs/__init__.py</exclude>
+					<exclude>gsindl/__init__.py</exclude>
 				</excludes>
 			</unpackOptions>
 		</dependencySet>

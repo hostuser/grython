@@ -1,7 +1,7 @@
-from org.vpac.grisu.control import DefaultResubmitPolicy
-from org.vpac.grisu.frontend.control.login import LoginManager
-from org.vpac.grisu.frontend.model.job import BatchJobObject
-from org.vpac.grisu.frontend.model.job import JobException
+from grisu.control import DefaultResubmitPolicy
+from grisu.frontend.control.login import LoginManager
+from grisu.frontend.model.job import BatchJobObject
+from grisu.frontend.model.job import JobException
 import sys
 import time
 

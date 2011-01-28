@@ -3,8 +3,8 @@ Created on 11/12/2009
 
 @author: markus
 '''
-from org.vpac.grisu.frontend.control.login import LoginManager
-from org.vpac.grisu.model import GrisuRegistryManager
+from grisu.frontend.control.login import LoginManager
+from grisu.model import GrisuRegistryManager
 import sys
 
 

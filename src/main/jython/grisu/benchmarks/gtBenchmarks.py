@@ -6,8 +6,8 @@ Created on 16/06/2010
 
 
 from exampleJobs import *
-from org.vpac.grisu.frontend.control.login import LoginManager
-from org.vpac.grisu.model import GrisuRegistryManager
+from grisu.frontend.control.login import LoginManager
+from grisu.model import GrisuRegistryManager
 import sys
 
 # setup benchmark stuff

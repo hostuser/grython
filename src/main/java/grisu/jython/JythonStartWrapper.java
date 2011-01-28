@@ -1,4 +1,4 @@
-package org.vpac.grisu.jython;
+package grisu.jython;
 
 import org.python.util.jython;
 

@@ -4,10 +4,10 @@ Created on 28/06/2010
 @author: markus
 '''
 from au.org.arcs.jcommons.constants import Constants
-from org.vpac.grisu.frontend.model.job import JobObject
-from org.vpac.grisu.jython.benchmarks.exampleJobs import action, defaultSubLoc
-from org.vpac.grisu.model import GrisuRegistryManager
-from org.vpac.grisu.model.job import JobSubmissionObjectImpl
+from grisu.frontend.model.job import JobObject
+from grisu.jython.benchmarks.exampleJobs import action, defaultSubLoc
+from grisu.model import GrisuRegistryManager
+from grisu.model.job import JobSubmissionObjectImpl
 
 class nonMdsJob(action):
 

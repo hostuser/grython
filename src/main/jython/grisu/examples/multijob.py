@@ -10,15 +10,15 @@ https://code.arcs.org.au/hudson/job/Grisu-SNAPSHOT/javadoc/org/vpac/grisu/fronte
 '''
 
 from au.org.arcs.jcommons.constants import Constants
-from org.vpac.grisu.control import ResubmitPolicy, ResubmitPolicy, \
+from grisu.control import ResubmitPolicy, ResubmitPolicy, \
     DefaultResubmitPolicy
-from org.vpac.grisu.control.exceptions import NoSuchJobException
-from org.vpac.grisu.frontend.control.login import LoginManager, LoginParams
-from org.vpac.grisu.frontend.model.job import JobObject, BatchJobObject, \
+from grisu.control.exceptions import NoSuchJobException
+from grisu.frontend.control.login import LoginManager, LoginParams
+from grisu.frontend.model.job import JobObject, BatchJobObject, \
     JobsException
-from org.vpac.grisu.frontend.view.swing.jobmonitoring.batch import \
+from grisu.frontend.view.swing.jobmonitoring.batch import \
     BatchJobDialog
-from org.vpac.grisu.model import GrisuRegistryManager
+from grisu.model import GrisuRegistryManager
 import sys
 import time
 

@@ -4,7 +4,7 @@ Created on 17/11/2009
 @author: markus
 '''
 
-from org.vpac.grisu.frontend.control.login import LoginManager
+from grisu.frontend.control.login import LoginManager
 import sys
 
 si = LoginManager.loginCommandline("Local")

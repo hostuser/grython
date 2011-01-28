@@ -5,9 +5,9 @@ Created on 16/06/2010
 '''
 from __future__ import with_statement
 from au.org.arcs.jcommons.constants import Constants
-from org.vpac.grisu.frontend.model.job import JobObject
-from org.vpac.grisu.model import GrisuRegistryManager
-from org.vpac.grisu.model.job import JobSubmissionObjectImpl
+from grisu.frontend.model.job import JobObject
+from grisu.model import GrisuRegistryManager
+from grisu.model.job import JobSubmissionObjectImpl
 import time
 
 

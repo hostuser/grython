@@ -17,8 +17,8 @@ Usage
 
 Here's a very simple example of how to submit a job using the *Grisu Jython wrapper*:
 
-    from org.vpac.grisu.frontend.control.login import LoginManager
-    from org.vpac.grisu.frontend.model.job import JobObject
+    from grisu.frontend.control.login import LoginManager
+    from grisu.frontend.model.job import JobObject
     import sys
 
     si = LoginManager.loginCommandline()

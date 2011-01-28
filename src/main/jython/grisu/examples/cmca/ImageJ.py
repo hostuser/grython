@@ -1,6 +1,6 @@
-from org.vpac.grisu.frontend.control.login import LoginManager
-from org.vpac.grisu.frontend.model.job import JobObject
-from org.vpac.grisu.model import GrisuRegistryManager
+from grisu.frontend.control.login import LoginManager
+from grisu.frontend.model.job import JobObject
+from grisu.model import GrisuRegistryManager
 
 si = LoginManager.loginCommandline("LOCAL")
 

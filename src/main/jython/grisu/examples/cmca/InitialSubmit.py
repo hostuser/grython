@@ -1,9 +1,9 @@
 from au.org.arcs.jcommons.constants import Constants
-from org.vpac.grisu.control import DefaultResubmitPolicy, JobnameHelpers
-from org.vpac.grisu.frontend.control.login import LoginManager
-from org.vpac.grisu.frontend.model.job import BatchJobObject, JobObject, \
+from grisu.control import DefaultResubmitPolicy, JobnameHelpers
+from grisu.frontend.control.login import LoginManager
+from grisu.frontend.model.job import BatchJobObject, JobObject, \
     JobsException
-from org.vpac.grisu.frontend.view.swing.jobmonitoring.batch import \
+from grisu.frontend.view.swing.jobmonitoring.batch import \
     BatchJobDialog
 import sys
 import time
