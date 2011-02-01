@@ -1,4 +1,4 @@
-from au.org.arcs.jcommons.constants import Constants
+from grisu.jcommons.constants import Constants
 from grisu.control import DefaultResubmitPolicy, JobnameHelpers
 from grisu.frontend.control.login import LoginManager
 from grisu.frontend.model.job import BatchJobObject, JobObject, \

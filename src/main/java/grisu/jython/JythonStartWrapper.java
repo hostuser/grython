@@ -1,8 +1,9 @@
 package grisu.jython;
 
+import grisu.jcommons.utils.JythonHelpers;
+
 import org.python.util.jython;
 
-import au.org.arcs.jcommons.utils.JythonHelpers;
 
 public class JythonStartWrapper {
 

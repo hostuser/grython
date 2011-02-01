@@ -3,7 +3,7 @@ Created on 28/06/2010
 
 @author: markus
 '''
-from au.org.arcs.jcommons.constants import Constants
+from grisu.jcommons.constants import Constants
 from grisu.frontend.model.job import JobObject
 from grisu.jython.benchmarks.exampleJobs import action, defaultSubLoc
 from grisu.model import GrisuRegistryManager

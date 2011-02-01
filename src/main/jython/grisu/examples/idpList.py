@@ -3,7 +3,7 @@ Created on 17/11/2009
 
 @author: markus
 '''
-from au.org.arcs.auth.shibboleth import DummyIdpObject, DummyCredentialManager, \
+from grith.sibboleth import DummyIdpObject, DummyCredentialManager, \
     Shibboleth
 from grisu.frontend.control.login import LoginManager
 import sys

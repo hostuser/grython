@@ -9,7 +9,7 @@ https://code.arcs.org.au/hudson/job/Grisu-SNAPSHOT/javadoc/org/vpac/grisu/fronte
 @author: Markus Binsteiner
 '''
 
-from au.org.arcs.jcommons.constants import Constants
+from grisu.jcommons.constants import Constants
 from grisu.control.exceptions import NoSuchJobException
 from grisu.frontend.control.login import LoginManager, LoginParams
 from grisu.frontend.model.job import JobObject, BatchJobObject, \

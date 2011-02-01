@@ -4,7 +4,7 @@ Created on 16/06/2010
 @author: markus
 '''
 from __future__ import with_statement
-from au.org.arcs.jcommons.constants import Constants
+from grisu.jcommons.constants import Constants
 from grisu.frontend.model.job import JobObject
 from grisu.model import GrisuRegistryManager
 from grisu.model.job import JobSubmissionObjectImpl

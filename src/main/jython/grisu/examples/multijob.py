@@ -9,7 +9,7 @@ https://code.arcs.org.au/hudson/job/Grisu-SNAPSHOT/javadoc/org/vpac/grisu/fronte
 @author: Markus Binsteiner
 '''
 
-from au.org.arcs.jcommons.constants import Constants
+from grisu.jcommons.constants import Constants
 from grisu.control import ResubmitPolicy, ResubmitPolicy, \
     DefaultResubmitPolicy
 from grisu.control.exceptions import NoSuchJobException
