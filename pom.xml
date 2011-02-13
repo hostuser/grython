@@ -8,21 +8,51 @@
 	<version>0.3-beta5-SNAPSHOT</version>
 
 	<properties>
-		<grisu.dependency.version>0.3-beta5-SNAPSHOT</grisu.dependency.version>
+		<grisu.dependency.version>0.3.2</grisu.dependency.version>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>bestgrid.public.release</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>bestgrid.public.snapshot</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/groups/public-snapshots/
+			</url>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+		</repository>
+	</repositories>	
 	
 	<distributionManagement>
 		<repository>
-			<id>arcs.release</id>
-			<name>ARCS Release Repository</name>
-			<url>http://code.arcs.org.au/nexus/content/repositories/releases</url>
-			<uniqueVersion>false</uniqueVersion>
+			<name>BeSTGRID Releases Repository</name>
+			<id>bestgrid.release</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>arcs.snapshot</id>
-			<name>ARCS SNAPSHOT Repository</name>
-			<url>http://code.arcs.org.au/nexus/content/repositories/snapshots</url>
-			<uniqueVersion>false</uniqueVersion>
+			<id>bestgrid.snapshot</id>
+			<name>BeSTGRID Snapshots Repository</name>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -71,7 +101,7 @@
 			<groupId>furbelow</groupId>
 			<artifactId>furbelow</artifactId>
 			<version>1.0</version>
-			<scope>provided</scope>
+			<scope>compile</scope>
 		</dependency>
 		<!-- <dependency> -->
 		<!-- <groupId>grisu</groupId> -->
@@ -97,6 +127,10 @@
 		<system>Github</system>
 		<url>https://github.com/grisu/grisu-jython/issues</url>
 	</issueManagement>
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://dev.ceres.auckland.ac.nz/hudson/job/Grisu-Jython-SNAPSHOT/</url>
+	</ciManagement>
 	<scm>
 		<connection>scm:git:git://github.com/grisu/grisu-jython.git</connection>
 		<developerConnection>scm:git:git@github.com:grisu/grisu-jython.git</developerConnection>
@@ -123,7 +157,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-
+				<version>2.2</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -133,20 +167,20 @@
 								<descriptor>grisu-client-dependencies.jython.assembly.xml
 								</descriptor>
 							</descriptors>
-							<finalName>grisu</finalName>
+							<finalName>grisu-jython</finalName>
 							<archive>
 								<index>true</index>
 								<manifest>
 									<mainClass>grisu.jython.JythonStartWrapper</mainClass>
 								</manifest>
 								<manifestEntries>
-									<Class-Path>bcprov.jar bcprov-jdk15-143.jar local-backend.jar
+									<Class-Path>bcprov.jar bcprov-jdk15-145.jar local-backend.jar
 									</Class-Path>
 								</manifestEntries>
 							</archive>
 						</configuration>
 						<goals>
-							<goal>attached</goal>
+							<goal>single</goal>
 						</goals>
 					</execution>
 				</executions>

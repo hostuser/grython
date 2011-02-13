@@ -1,5 +1,5 @@
 <assembly>
-	<id>jython</id>
+	<id>pkg</id>
 	<formats>
 		<format>jar</format>
 	</formats>
@@ -12,6 +12,9 @@
 			<useTransitiveFiltering>true</useTransitiveFiltering>
 			<useProjectArtifact>true</useProjectArtifact>
 			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>grisu.frontend:grisu-jython</include>
+			</includes>
 			<excludes>
 				<exclude>junit:junit</exclude>
 				<exclude>bouncycastle:bcprov-jdk15</exclude>
@@ -31,33 +34,33 @@
 			</unpackOptions>
 		</dependencySet>
 
-		<dependencySet>
-			<unpack>true</unpack>
-			<scope>provided</scope>
-			<useTransitiveDependencies>true</useTransitiveDependencies>
-			<useTransitiveFiltering>true</useTransitiveFiltering>
-			<useProjectArtifact>true</useProjectArtifact>
-			<outputDirectory>/</outputDirectory>
-			<excludes>
-				<exclude>junit:junit</exclude>
-				<exclude>bouncycastle:bcprov-jdk15</exclude>
-			</excludes>
-			<unpackOptions>
-				<excludes>
-					<exclude>**/INDEX.LIST</exclude>
-					<exclude>**/MANIFEST.MF</exclude>
-					<exclude>**/LICENSE</exclude>
-					<exclude>**/LICENSE.txt</exclude>
-					<exclude>**/NOTICE.txt</exclude>
-					<exclude>**/log4j.properties</exclude>
-					<exclude>**/NOTICE</exclude>
-					<exclude>**/gluev12r2-ext-class-map.properties</exclude>
-					<exclude>**/rebel.xml</exclude>
-					<exclude>arcs/__init__.py</exclude>
-					<exclude>gsindl/__init__.py</exclude>
-				</excludes>
-			</unpackOptions>
-		</dependencySet>
+<!--		<dependencySet>-->
+<!--			<unpack>true</unpack>-->
+<!--			<scope>provided</scope>-->
+<!--			<useTransitiveDependencies>true</useTransitiveDependencies>-->
+<!--			<useTransitiveFiltering>true</useTransitiveFiltering>-->
+<!--			<useProjectArtifact>true</useProjectArtifact>-->
+<!--			<outputDirectory>/</outputDirectory>-->
+<!--			<excludes>-->
+<!--				<exclude>junit:junit</exclude>-->
+<!--				<exclude>bouncycastle:bcprov-jdk15</exclude>-->
+<!--			</excludes>-->
+<!--			<unpackOptions>-->
+<!--				<excludes>-->
+<!--					<exclude>**/INDEX.LIST</exclude>-->
+<!--					<exclude>**/MANIFEST.MF</exclude>-->
+<!--					<exclude>**/LICENSE</exclude>-->
+<!--					<exclude>**/LICENSE.txt</exclude>-->
+<!--					<exclude>**/NOTICE.txt</exclude>-->
+<!--					<exclude>**/log4j.properties</exclude>-->
+<!--					<exclude>**/NOTICE</exclude>-->
+<!--					<exclude>**/gluev12r2-ext-class-map.properties</exclude>-->
+<!--					<exclude>**/rebel.xml</exclude>-->
+<!--					<exclude>arcs/__init__.py</exclude>-->
+<!--					<exclude>gsindl/__init__.py</exclude>-->
+<!--				</excludes>-->
+<!--			</unpackOptions>-->
+<!--		</dependencySet>-->
 	</dependencySets>
 
 	<files>
