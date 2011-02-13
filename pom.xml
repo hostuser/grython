@@ -1,65 +1,113 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<artifactId>grisu-clients</artifactId>
-		<groupId>org.vpac.grisu</groupId>
-		<version>0.3-beta4-SNAPSHOT</version>
-	</parent>
-	<artifactId>grisu-client-jython</artifactId>
+
+	<artifactId>grisu-jython</artifactId>
+	<groupId>grisu.frontend</groupId>
 	<name>Jython client package</name>
+	<version>0.3.3-SNAPSHOT</version>
+
+	<properties>
+		<grisu.dependency.version>0.3.2</grisu.dependency.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>bestgrid.public.release</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>bestgrid.public.snapshot</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/groups/public-snapshots/
+			</url>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+		</repository>
+	</repositories>	
+	
+	<distributionManagement>
+		<repository>
+			<name>BeSTGRID Releases Repository</name>
+			<id>bestgrid.release</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>bestgrid.snapshot</id>
+			<name>BeSTGRID Snapshots Repository</name>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
-			<groupId>org.vpac.grisu</groupId>
+			<groupId>grisu.frontend</groupId>
 			<artifactId>grisu-client</artifactId>
 			<version>${grisu.dependency.version}</version>
 			<type>jar</type>
 		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>jython</groupId> -->
+		<!-- <artifactId>jython</artifactId> -->
+		<!-- <version>2.5.1</version> -->
+		<!-- <type>jar</type> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>jython</groupId> -->
+		<!-- <artifactId>jythonLib</artifactId> -->
+		<!-- <version>2.5.1</version> -->
+		<!-- <type>jar</type> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.jgoodies</groupId> -->
+		<!-- <artifactId>forms</artifactId> -->
+		<!-- <version>1.2.1</version> -->
+		<!-- <type>jar</type> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.jidesoft</groupId> -->
+		<!-- <artifactId>jide-oss</artifactId> -->
+		<!-- <version>2.9.1</version> -->
+		<!-- <type>jar</type> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.swinglabs</groupId> -->
+		<!-- <artifactId>swingx</artifactId> -->
+		<!-- <version>1.6</version> -->
+		<!-- <type>jar</type> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
 		<dependency>
-			<groupId>jython</groupId>
-			<artifactId>jython</artifactId>
-			<version>2.5.1</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>jython</groupId>
-			<artifactId>jythonLib</artifactId>
-			<version>2.5.1</version>
-			<type>jar</type>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.jgoodies</groupId>
-			<artifactId>forms</artifactId>
-			<version>1.2.1</version>
-			<type>jar</type>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.jidesoft</groupId>
-			<artifactId>jide-oss</artifactId>
-			<version>2.9.1</version>
-			<type>jar</type>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.swinglabs</groupId>
-			<artifactId>swingx</artifactId>
-			<version>1.6</version>
-			<type>jar</type>
-			<scope>provided</scope>
-		</dependency>
-				<dependency>
 			<groupId>furbelow</groupId>
 			<artifactId>furbelow</artifactId>
 			<version>1.0</version>
-			<scope>provided</scope>
+			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.vpac.grisu</groupId>
-			<artifactId>grisu-core</artifactId>
-			<version>${grisu.dependency.version}</version>
-			<scope>provided</scope>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>grisu</groupId> -->
+		<!-- <artifactId>grisu-core</artifactId> -->
+		<!-- <version>${grisu.dependency.version}</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>bouncycastle</groupId>
 			<artifactId>bcprov-jdk15</artifactId>
@@ -67,10 +115,30 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
-		
+
 	</dependencies>
 
 
+	<description>The Grisu Jython wrapper is a Java package that contains both the Grisu client library and a version of the Jython interpreter. Basically, it allows you to access all the convenience (Java) methods and objects of the Grisu client library via Python syntax. 
+</description>
+	<url>https://github.com/grisu/grisu-jython</url>
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/grisu/grisu-jython/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://dev.ceres.auckland.ac.nz/hudson/job/Grisu-Jython-SNAPSHOT/</url>
+	</ciManagement>
+	<scm>
+		<connection>scm:git:git://github.com/grisu/grisu-jython.git</connection>
+		<developerConnection>scm:git:git@github.com:grisu/grisu-jython.git</developerConnection>
+		<url>https://github.com/grisu/grisu-jython/tree/master</url>
+	</scm>
+	<organization>
+		<name>Grisu open source project</name>
+		<url>https://github.com/grisu</url>
+	</organization>
 	<build>
 		<resources>
 			<resource>
@@ -88,7 +156,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-
+				<version>2.2</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -98,24 +166,60 @@
 								<descriptor>grisu-client-dependencies.jython.assembly.xml
 								</descriptor>
 							</descriptors>
-							<finalName>grisu</finalName>
+							<finalName>grisu-jython</finalName>
 							<archive>
 								<index>true</index>
 								<manifest>
-									<mainClass>org.vpac.grisu.jython.JythonStartWrapper</mainClass>
+									<mainClass>grisu.jython.JythonStartWrapper</mainClass>
 								</manifest>
 								<manifestEntries>
-									<Class-Path>bcprov.jar bcprov-jdk15-143.jar local-backend.jar
+									<Class-Path>bcprov.jar bcprov-jdk15-145.jar local-backend.jar
 									</Class-Path>
 								</manifestEntries>
 							</archive>
 						</configuration>
 						<goals>
-							<goal>attached</goal>
+							<goal>single</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>sign</id>
+			<activation>
+				<property>
+					<name>BUILD_NUMBER</name>
+				</property>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jarsigner-plugin</artifactId>
+						<version>1.2</version>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<alias>grisu</alias>
+							<storepass>FxAKs3p6</storepass>
+							<keypass>FxAKs3p6</keypass>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
+
 </project>
