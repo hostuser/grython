@@ -4,7 +4,7 @@
 	<artifactId>grisu-jython</artifactId>
 	<groupId>grisu.frontend</groupId>
 	<name>Jython client package</name>
-	<version>0.3.3.1</version>
+	<version>0.3.3.2-SNAPSHOT</version>
 
 	<properties>
 		<grisu.dependency.version>0.3.3.1</grisu.dependency.version>
