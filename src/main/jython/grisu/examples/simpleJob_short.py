@@ -1,15 +1,20 @@
 from grisu.frontend.control.login import LoginManager
 from grisu.frontend.model.job import JobObject
 
-si = LoginManager.loginCommandline("BeSTGRID")
+si = LoginManager.loginCommandline("Local")
+
+print 'Logged in.'
 
 job = JobObject(si);
-job.setUniqueJobname("cat_job")
-job.setCommandline("cat singleJobFile_0.txt")
-job.addInputFileUrl('/home/markus/test/singleJobFile_0.txt');
+job.setUniqueJobname("cat_job", si)
+job.setCommandline("cat text0.txt")
+job.addInputFileUrl('/home/markus/tmp/text0.txt');
 
 job.createJob("/ARCS/BeSTGRID")
+job.setSubmissionLocation('route@er171.ceres.auckland.ac.nz:ng2.auckland.ac.nz')
 job.submitJob()
+
+print 'Job submitted.'
 
 job.waitForJobToFinish(10)
 
