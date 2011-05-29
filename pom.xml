@@ -174,7 +174,7 @@
 									<mainClass>grisu.jython.JythonStartWrapper</mainClass>
 								</manifest>
 								<manifestEntries>
-									<Class-Path>bcprov.jar bcprov-jdk15-145.jar local-backend.jar
+									<Class-Path>bcprov.jar bcprov-jdk15-145.jar local-backend-dev.jar local-backend.jar
 									</Class-Path>
 								</manifestEntries>
 							</archive>
