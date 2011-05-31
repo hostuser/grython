@@ -11,8 +11,8 @@ Prerequisites
 
 * Sun Java (version >= 6)
 * the [Grisu jython package]
-  * stable: (http://code.ceres.auckland.ac.nz/snapshot-downloads/grisu-jython-dev.jar) or
-  * dev: (http://code.ceres.auckland.ac.nz/snapshot-downloads/grisu-jython-dev.jar)
+  * stable: http://code.ceres.auckland.ac.nz/downloads/grisu-jython.jar or
+  * dev: http://code.ceres.auckland.ac.nz/snapshot-downloads/grisu-jython-dev.jar
 
 
 Usage
