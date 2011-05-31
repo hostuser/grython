@@ -19,7 +19,7 @@ Prerequisites
 Usage
 ----------
 
-*grisu-jython* is started ala:
+*grisu-jython* is started like so:
 
     java -jar grisu-jython.jar <script-name>.py
 
