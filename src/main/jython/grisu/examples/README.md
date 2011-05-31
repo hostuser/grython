@@ -1,69 +1,49 @@
-Grisu Jython
+Examples
 ===========
 
-The *Grisu Jython wrapper* is a Java package that contains both the [Grisu client library](https://github.com/grisu/grisu/wiki/Grisu-client-library) and a version of the [Jython](http://jython.org/) interpreter. Basically, it allows you to access all the convenience (Java) methods and objects of the *Grisu client library* via Python syntax. 
+Here are a few example scripts that show how certain, often used tasks are done...
 
-Beware, you can't run this package in a native Python environment. So, if you want to write a python script that relies on 3rd party modules which don't run in Jython (for example because they are written in C), you're (most likely) out of luck.
+## deleteAllJobs.py
 
+delete all (single) jobs on a backend
 
-Prerequisites
----------------------
+## idpList.py
 
-* Sun Java (version >= 6)
-* the [Grisu jython package](https://code.arcs.org.au/hudson/me/my-views/view/My%20stuff/job/Grisu-clients-SNAPSHOT/lastSuccessfulBuild/artifact/grisu-client-jython/target/grisu-jython.jar)
+returns a list of all available IdPs (in order to display to the user who can in turn select the one she wants to use).
 
-Usage
-----------
+## info.py
 
-Here's a very simple example of how to submit a job using the *Grisu Jython wrapper*:
+a script to display information about available versions and submissionlocations of applications installed on the grid. Also shows other available details for those applications.
 
-    from grisu.frontend.control.login import LoginManager
-    from grisu.frontend.model.job import JobObject
-    import sys
+## batchJob.py
 
-    si = LoginManager.loginCommandline()
+how to submit and monitor a batchjob and also how to retrieve its results
 
-    
+## batchJob_kill.py
 
-    print 'Creating job...'
-    # create the job object
+how to kill a batchjob and wait until that task is finished on the backend
 
-    job = JobObject(si);
-    # set a unique jobname
-    job.setUniqueJobname("echo_job1")
-    print 'Set jobname to: '+ job.getJobname()
-    # set the name of the application like it is published in mds. "generic" means not to use mds for the lookup.
-    job.setApplication("generic")
-    # since we are using a "generic" job, we need to specify a submission location. I'll make that easier later on...
-    job.setSubmissionLocation("dque@edda-m:ng2.vpac.org")
+## r-batch-submit.py
 
-    
-    # set the commandline that needs to be executed
-    job.setCommandline("echo \"Hello World\"")
-    
-    # create the job on the backend and specify the VO to use
-    job.createJob("/ARCS/NGAdmin")
-    print 'Submitting job...'
-    # submit the job
-    job.submitJob()
-    
-    print 'Waiting for the job to finish...'
-    # this waits until the job is finished. Checks every 10 seconds (which would be too often for a real job)
-    finished = job.waitForJobToFinish(10)
-    
-    if not finished:
-            print "not finished yet."
-            # kill the job on the backend anyway
-            job.kill(True);
-    else:
-            print 'Job finished. Status: '+job.getStatusString(False)
-            # download and cache the jobs' stdout and display it's content
-            print "Stdout: " + job.getStdOutContent()
-            # download and cache the jobs' stderr and display it's content
-            print "Stderr: " + job.getStdErrContent()
-            # kill and clean the job on the backend
-            job.kill(True)
-    
-    # don't forget to exit properly. this cleans up possible existing threads/executors
-    sys.exit()
+another example of how to submit a batchjob. this time it is a real-world example that submits batches of R jobs
+
+## resourceInfo.py
+
+displays all available submissionlocations on the grid, regardless of the VOs a user is in
+
+## simpleDiffJob.py
+
+submits a simple diff job (including input files read from commandline options, waits for it to finish and then displays stdout and stderr content
+
+## simpleJob.py
+
+another simple job submit. simple "echo Hello World" job. waits for job to finish and downloads stdout and stderr content
+
+## simpleJob2.py
+
+and another simple job, this time "cat <file>"
+
+# simpleJob_short.py
+
+same cat job, without documentation
 
