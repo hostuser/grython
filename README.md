@@ -10,10 +10,25 @@ Prerequisites
 ---------------------
 
 * Sun Java (version >= 6)
-* the [Grisu jython package](https://code.arcs.org.au/hudson/me/my-views/view/My%20stuff/job/Grisu-clients-SNAPSHOT/lastSuccessfulBuild/artifact/grisu-client-jython/target/grisu-jython.jar)
+* the [Grisu jython package]
+  * stable: http://code.ceres.auckland.ac.nz/downloads/grisu-jython.jar or
+  * dev: http://code.ceres.auckland.ac.nz/snapshot-downloads/grisu-jython-dev.jar
+
+
+Documentation / Examples
+---------------------------
+
+* Javadoc for the Grisu client library whose classes/methods can be used from jython: http://grisu.github.com/grisu/javadoc/
+* Script examples can be found here: https://github.com/grisu/grisu-jython/tree/develop/src/main/jython/grisu/examples
+* More examples (but pure Java): https://github.com/grisu/examples
+* Grisu wiki: https://github.com/grisu/grisu/wiki
 
 Usage
 ----------
+
+*grisu-jython* is started like so:
+
+    java -jar grisu-jython.jar <script-name>.py
 
 Here's a very simple example of how to submit a job using the *Grisu Jython wrapper*:
 
