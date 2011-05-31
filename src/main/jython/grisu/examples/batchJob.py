@@ -28,12 +28,7 @@ numberOfJobs = 10
 # the (unique) name of the batchjob
 batch_job_name = "test_batch";
 
-   
-
-# to see whats going on we add a simple event listener. Hm. This doesn't seem to work reliably in jython. 
-#SystemOutMultiJobLogger(multiJobName)
-
-# create the multipart job 
+# create the batchjob 
 batch_job = BatchJobObject(si, batch_job_name, "/nz/nesi", "UnixCommands", Constants.NO_VERSION_INDICATOR_STRING);
 
 # now we can calculate the relative path (from every job directory) to the common input file folder
@@ -54,7 +49,8 @@ for i in range(0, numberOfJobs):
 batch_job.addInputFile('/home/markus/tmp/commonJobFile.txt')
 batch_job.setDefaultNoCpus(1);
 batch_job.setDefaultWalltimeInSeconds(60);   
-    
+   
+batch_job.setLocationsToExclude(["gt5test:ng1.canterbury.ac.nz"])
     
 try:
     print "Creating jobs on the backend and staging files..."
@@ -85,6 +81,7 @@ print "BatchJob "+batch_job.getJobname()+" finished."
 # finally, everything is ready. We could do a lot more here, but you get the idea...
 for job in batch_job.getJobs():
     print "Job: "+job.getJobname()+", Status: "+job.getStatusString(False)
+    print "Submitted to: "+job.getJobProperty(Constants.SUBMISSION_SITE_KEY)
     print
     print "Stdout: "
     print job.getStdOutContent()
