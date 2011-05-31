@@ -3,6 +3,14 @@ Examples
 
 Here are a few example scripts that show how certain, often used tasks are done...
 
+## batchJob.py
+
+how to submit and monitor a batchjob and also how to retrieve its results
+
+## batchJob_kill.py
+
+how to kill a batchjob and wait until that task is finished on the backend
+
 ## deleteAllJobs.py
 
 delete all (single) jobs on a backend
@@ -14,14 +22,6 @@ returns a list of all available IdPs (in order to display to the user who can in
 ## info.py
 
 a script to display information about available versions and submissionlocations of applications installed on the grid. Also shows other available details for those applications.
-
-## batchJob.py
-
-how to submit and monitor a batchjob and also how to retrieve its results
-
-## batchJob_kill.py
-
-how to kill a batchjob and wait until that task is finished on the backend
 
 ## r-batch-submit.py
 
