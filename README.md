@@ -15,8 +15,13 @@ Prerequisites
   * dev: http://code.ceres.auckland.ac.nz/snapshot-downloads/grisu-jython-dev.jar
 
 
+
 Usage
 ----------
+
+*grisu-jython* is started ala:
+
+    java -jar grisu-jython.jar <script-name>.py
 
 Here's a very simple example of how to submit a job using the *Grisu Jython wrapper*:
 
