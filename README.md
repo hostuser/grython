@@ -10,7 +10,10 @@ Prerequisites
 ---------------------
 
 * Sun Java (version >= 6)
-* the [Grisu jython package](https://code.arcs.org.au/hudson/me/my-views/view/My%20stuff/job/Grisu-clients-SNAPSHOT/lastSuccessfulBuild/artifact/grisu-client-jython/target/grisu-jython.jar)
+* the [Grisu jython package]
+  * stable: (http://code.ceres.auckland.ac.nz/snapshot-downloads/grisu-jython-dev.jar) or
+  * dev: (http://code.ceres.auckland.ac.nz/snapshot-downloads/grisu-jython-dev.jar)
+
 
 Usage
 ----------
