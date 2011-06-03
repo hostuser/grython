@@ -27,6 +27,7 @@
 					<exclude>**/NOTICE.txt</exclude>
 					<exclude>**/NOTICE</exclude>
 					<exclude>**/log4j.properties</exclude>
+					<exclude>**/log4j.xml</exclude>
 					<exclude>**/LICENSE</exclude>
 					<exclude>**/rebel.xml</exclude>
 					<exclude>arcs/__init__.py</exclude>
@@ -65,7 +66,7 @@
 
 	<files>
 		<file>
-			<source>src/main/resources/log4j.properties</source>
+			<source>src/main/resources/log4j.xml</source>
 			<outputDirectory>/</outputDirectory>
 		</file>
 		<file>
