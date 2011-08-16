@@ -19,7 +19,7 @@ Documentation / Examples
 ---------------------------
 
 * Javadoc for the Grisu client library whose classes/methods can be used from jython: http://grisu.github.com/grisu/javadoc/
-* Script examples can be found here: https://github.com/grisu/grisu-jython/tree/develop/src/main/jython/grisu/examples
+* Script examples can be found here: https://github.com/grisu/grisu-jython/tree/master/src/main/jython/grisu/examples
 * More examples (but pure Java): https://github.com/grisu/examples
 * Grisu wiki: https://github.com/grisu/grisu/wiki
 
