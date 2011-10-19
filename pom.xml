@@ -4,10 +4,10 @@
 	<artifactId>grisu-jython</artifactId>
 	<groupId>grisu.frontend</groupId>
 	<name>Jython client package</name>
-	<version>0.3.6-SNAPSHOT</version>
+	<version>0.3.7-SNAPSHOT</version>
 
 	<properties>
-		<grisu.dependency.version>0.3.6-SNAPSHOT</grisu.dependency.version>
+		<grisu.dependency.version>0.3.7</grisu.dependency.version>
 	</properties>
 	
 	<repositories>
