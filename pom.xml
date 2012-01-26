@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>grisu-jython</artifactId>
+	<artifactId>grython</artifactId>
 	<groupId>grisu.frontend</groupId>
 	<name>Jython client package</name>
 	<version>0.4-SNAPSHOT</version>
 
 	<properties>
-		<grisu.dependency.version>0.3.7</grisu.dependency.version>
+		<grisu.version>0.4-rc13-SNAPSHOT</grisu.version>
 	</properties>
 	
 	<repositories>
@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>grisu.frontend</groupId>
 			<artifactId>grisu-client</artifactId>
-			<version>${grisu.dependency.version}</version>
+			<version>${grisu.version}</version>
 			<type>jar</type>
 		</dependency>
 		<!-- <dependency> -->
@@ -164,7 +164,48 @@
 					    <pushChanges>false</pushChanges>
 					    <localCheckout>true</localCheckout>
 				  </configuration>
-			</plugin>			
+			</plugin>		
+			
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>maven-replacer-plugin</artifactId>
+				<version>1.3.2</version>
+				<executions>
+					<execution>
+						<!-- the replace should happen before the app is packaged -->
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<includes>
+						<!-- replace the token in this file -->
+						<include>target/classes/grython.version</include>
+					</includes>
+					<regex>false</regex>
+					<!-- the name of the token to replace -->
+					<token>VERSION_TOKEN</token>
+					<!-- replace it with the maven project version -->
+					<value>${project.version}</value>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.2.2</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<pushChanges>true</pushChanges>
+					<localCheckout>true</localCheckout>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<releaseProfiles>man,deb,rpm</releaseProfiles>
+
+				</configuration>
+			</plugin>				
 			
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -178,7 +219,7 @@
 								<descriptor>grisu-client-dependencies.jython.assembly.xml
 								</descriptor>
 							</descriptors>
-							<finalName>grisu-jython</finalName>
+							<finalName>grython</finalName>
 							<archive>
 								<index>true</index>
 								<manifest>
@@ -232,6 +273,219 @@
 			</build>
 
 		</profile>
+
+		<profile>
+			<id>deb</id>
+			<!-- <activation> -->
+			<!-- <property> -->
+			<!-- <name>BUILD_NUMBER</name> -->
+			<!-- </property> -->
+			<!-- </activation> -->
+
+			<build>
+				<plugins>
+
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>2.5</version>
+						<executions>
+							<execution>
+								<id>copy-deb-control</id>
+								<!-- here the phase you need -->
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${basedir}/target/deb/control</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${basedir}/src/deb/control</directory>
+											<filtering>false</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>maven-replacer-plugin</artifactId>
+						<version>1.4.0</version>
+						<executions>
+							<execution>
+								<id>fix_deb_version</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<includes>
+								<include>target/classes/grython.version</include>
+								<include>target/deb/control/control</include>
+							</includes>
+							<ignoreMissingFile>false</ignoreMissingFile>
+
+							<replacements>
+								<replacement>
+									<token>VERSION_TOKEN</token>
+									<value>${project.version}</value>
+								</replacement>
+							</replacements>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<artifactId>jdeb</artifactId>
+						<groupId>org.vafer</groupId>
+						<version>0.9</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jdeb</goal>
+								</goals>
+								<configuration>
+									<changesIn>CHANGES.txt</changesIn>
+									<deb>[[buildDir]]/grython-${project.version}.deb</deb>
+									<controlDir>target/deb/control</controlDir>
+									<dataSet>
+										<data>
+											<src>${project.build.directory}/grython-binary.jar</src>
+											<type>file</type>
+											<mapper>
+												<type>perm</type>
+												<prefix>/usr/local/lib/grisu/</prefix>
+												<user>root</user>
+												<group>root</group>
+											</mapper>
+										</data>
+										<data>
+											<src>${project.basedir}/src/deb/data/grython</src>
+											<type>file</type>
+											<mapper>
+												<type>perm</type>
+												<prefix>/usr/bin/</prefix>
+												<user>root</user>
+												<group>root</group>
+												<filemode>755</filemode>
+											</mapper>
+										</data>
+										
+										<data>
+											<src>${project.basedir}/src/deb/data/nesi-repo.key.dpkg-new5</src>
+											<type>file</type>
+											<mapper>
+												<type>perm</type>
+												<prefix>/usr/share/keyrings/</prefix>
+												<user>root</user>
+												<group>root</group>
+												<filemode>755</filemode>
+											</mapper>
+										</data>
+										
+										<data>
+											<src>${project.basedir}/src/deb/data/nesi-repo.list.dpkg-new5</src>
+											<type>file</type>
+											<mapper>
+												<type>perm</type>
+												<prefix>/etc/apt/sources.list.d/</prefix>
+												<user>root</user>
+												<group>root</group>
+												<filemode>755</filemode>
+											</mapper>
+										</data>																		
+
+									</dataSet>
+
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+
+		<profile>
+			<id>rpm</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<version>2.1-alpha-1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>attached-rpm</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<copyright>2011, University of Auckland</copyright>
+							<distribution>Grisu</distribution>
+							<group>Application/Other</group>
+							<!-- <icon>src/main/resources/icon.gif</icon> -->
+							<packager>Markus Binsteiner</packager>
+<!-- 							<prefix>/usr/local</prefix> -->
+							<version>${project.version}</version>
+							<!-- <changelogFile>src/changelog</changelogFile> -->
+							<!-- <defineStatements> -->
+							<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
+							<!-- </defineStatements> -->
+							<mappings>
+								<mapping>
+									<directory>/usr/local/lib/grisu</directory>
+									<filemode>755</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>target/grython-binary.jar</location>
+										</source>
+										<source>
+											<location>src/deb/data/bcprov.jar</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>/usr/bin</directory>
+									<documentation>true</documentation>
+									<filemode>755</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>src/deb/data/grython</location>
+										</source>
+									</sources>
+								</mapping>
+
+							</mappings>
+							<requires>
+								<require>java-1.6.0-openjdk</require>
+<!-- 								<require>bouncycastle</require> -->
+							</requires>
+							<preinstallScriptlet>
+								<script>echo "Installing Grython..."</script>
+							</preinstallScriptlet>
+							<!-- <postinstallScriptlet> <scriptFile>src/main/scripts/postinstall</scriptFile> 
+								<fileEncoding>utf-8</fileEncoding> </postinstallScriptlet> <preremoveScriptlet> 
+								<scriptFile>src/main/scripts/preremove</scriptFile> <fileEncoding>utf-8</fileEncoding> 
+								</preremoveScriptlet> -->
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+
+		</profile>
+
+
 	</profiles>
 
 </project>

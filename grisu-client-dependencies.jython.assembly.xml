@@ -1,5 +1,5 @@
 <assembly>
-	<id>bin</id>
+	<id>binary</id>
 	<formats>
 		<format>jar</format>
 	</formats>
@@ -13,7 +13,7 @@
 			<useProjectArtifact>true</useProjectArtifact>
 			<outputDirectory>/</outputDirectory>
 			<includes>
-				<include>grisu.frontend:grisu-jython</include>
+				<include>grisu.frontend:grython</include>
 			</includes>
 			<excludes>
 				<exclude>junit:junit</exclude>
@@ -28,6 +28,7 @@
 					<exclude>**/NOTICE</exclude>
 					<exclude>**/log4j.properties</exclude>
 					<exclude>**/log4j.xml</exclude>
+					<exclude>**/logback.xml</exclude>
 					<exclude>**/LICENSE</exclude>
 					<exclude>**/rebel.xml</exclude>
 					<exclude>arcs/__init__.py</exclude>
@@ -66,7 +67,7 @@
 
 	<files>
 		<file>
-			<source>src/main/resources/log4j.xml</source>
+			<source>src/main/resources/logback.xml</source>
 			<outputDirectory>/</outputDirectory>
 		</file>
 		<file>
